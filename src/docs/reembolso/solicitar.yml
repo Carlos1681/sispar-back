@@ -1,0 +1,82 @@
+tags:
+  - Reembolso
+description: Endpoint para solicitar um novo reembolso.
+parameters:
+  - in: body
+    name: corpo
+    required: true
+    schema:
+      type: object
+      properties:
+        colaborador:
+          type: string
+          example: João da Silva
+        empresa:
+          type: string
+          example: Votorantim Cimentos
+        num_prestacao:
+          type: integer
+          example: 123
+        descricao:
+          type: string
+          example: Viagem para reunião em São Paulo
+        data:
+          type: string
+          format: date
+          example: "2025-05-01"
+        tipo_reembolso:
+          type: string
+          example: Transporte
+        centro_custo:
+          type: string
+          example: CC12345
+        ordem_interna:
+          type: string
+          example: OI001
+        divisao:
+          type: string
+          example: Engenharia
+        pep:
+          type: string
+          example: PEP2025
+        moeda:
+          type: string
+          example: BRL
+        distancia_km:
+          type: string
+          example: "120"
+        valor_km:
+          type: number
+          format: float
+          example: 0.75
+        valor_faturado:
+          type: number
+          format: float
+          example: 300.00
+        despesa:
+          type: number
+          format: float
+          example: 50.00
+        id_colaborador:
+          type: integer
+          example: 1
+        status:
+          type: string
+          example: Em analise
+      required:
+        - colaborador
+        - empresa
+        - num_prestacao
+        - data
+        - tipo_reembolso
+        - centro_custo
+        - moeda
+        - valor_faturado
+        - id_colaborador
+responses:
+  201:
+    description: Reembolso solicitado com sucesso.
+  400:
+    description: Erro nos dados enviados.
+  500:
+    description: Erro interno no servidor.

@@ -1,0 +1,36 @@
+tags:
+  - Colaborador
+description: Endpoint para cadastrar um novo colaborador.
+parameters:
+  - in: body
+    name: corpo
+    required: true
+    schema:
+      type: object
+      properties:
+        nome:
+          type: string
+          example: Teste Silva
+        email:
+          type: string
+          example: teste@email.com
+        senha:
+          type: string
+          example: teste123
+        cargo:
+          type: string
+          example: Analista de testes
+        salario:
+          type: number
+          example: 1500.99
+      required:
+        - nome
+        - email
+        - senha
+        - cargo
+        - salario
+responses:
+  201:
+    description: Colaborador cadastrado com sucesso.
+  400:
+    description: Erro nos dados enviados.
